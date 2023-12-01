@@ -8,18 +8,6 @@ Dataset Links
 - https://www.kaggle.com/silicon99/dft-accident-data
 ```
 
-## Example
-
-(Please remove this example in your final README)
-```
-Team Number: 01
-Team Members: h365chen,pasward,user3nam
-Dataset Names: 01-cars
-Dataset Links
-- https://www.kaggle.com/ananaymital/us-used-cars-dataset
-- https://www.kaggle.com/austinreese/craigslist-carstrucks-data
-```
-
 # Folder structure
 
 ```
