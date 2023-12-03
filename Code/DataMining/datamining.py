@@ -44,10 +44,6 @@ cursor.close()
 db.close()
 
 # TODO: load relevant data into numpy array
-# load data infile '/var/lib/mysql-files/NHL_356/player_info.csv' ignore into table PlayerInfo
-#      fields terminated by ','
-#      enclosed by '"'
-#      lines terminated by '\n';
 
 # TODO: split data into k-partitions
 

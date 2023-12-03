@@ -1,6 +1,3 @@
-drop table if exists Accident;
-drop table if exists Casualty;
-drop table if exists Vehicle;
 drop table if exists LKAccidentSeverity;
 drop table if exists LKCasualtySeverity;
 drop table if exists LKCasualtyType;
@@ -42,6 +39,10 @@ drop table if exists LKDriverPosition;
 drop table if exists LKPropulsionType;
 drop table if exists LKIMDDecile;
 drop table if exists LKCasualtyClass;
+drop table if exists LKJunctionControl;
+drop table if exists Casualty;
+drop table if exists Vehicle;
+drop table if exists Accident;
 
 create table Accident (
     accidentID varchar(16) primary key,
@@ -85,7 +86,7 @@ create table Casualty (
     pedLocation int,
     pedMovement int,
     pedRoadMaintenanceWorker int,
-    casualtyHomeAreaType,
+    casualtyHomeAreaType int,
     carPassengerType int,
     busPassengerType int,
     primary key(accidentID, vehicleReference, casualtyReference),
