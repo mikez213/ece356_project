@@ -1,6 +1,24 @@
 import mysql.connector
 import getpass
 
+"""
+input:
+vehicleType
+isLeftHandDrive
+engineCapacity
+ageOfVehicle
+sexOfDriver
+ageOfDriver
+driverIMD
+
+output:
+casualty level of driver
+1. No casualty
+2. Light
+3. Serious
+4. Fatal
+"""
+
 host = input("host: ")
 database = input("database: ")
 username = input("username: ")
