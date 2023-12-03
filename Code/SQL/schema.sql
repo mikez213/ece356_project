@@ -35,6 +35,7 @@ drop table if exists LKVehicleLocationRestrictedLane;
 drop table if exists LKSkiddingAndOverturning;
 drop table if exists LKVehicleLeavingCarriageway;
 drop table if exists LKHitObjectOffCarriageway;
+drop table if exists LKHitObjectInCarriageway;
 drop table if exists LKDriverPosition;
 drop table if exists LKPropulsionType;
 drop table if exists LKIMDDecile;
@@ -104,6 +105,7 @@ create table Vehicle (
     skiddingAndOverturning int,
     vehicleLeavingCarriageway int,
     hitObjectOffCarriageway int,
+    hitObjectInCarriageway int,
     firstPointOfImpact int,
     driverPosition int,
     journeyPurposeOfDriver int,
@@ -301,6 +303,11 @@ create Table LKVehicleLeavingCarriageway (
 create Table LKHitObjectOffCarriageway (
     hitObjectOffCarriagewayID int primary key,
     hitObjectOffCarriagewayDescription varchar(64) not null
+);
+
+create Table LKHitObjectInCarriageway (
+    hitObjectInCarriagewayID int primary key,
+    hitObjectInCarriagewayDescription varchar(64) not null
 );
 
 create Table LKDriverPosition (
