@@ -44,7 +44,7 @@ drop table if exists LKIMDDecile;
 drop table if exists LKCasualtyClass;
 
 create table Accident (
-    accidentID int primary key,
+    accidentID varchar(16) primary key,
     accidentSeverity int,
     numberOfVehicles int,
     numberOfCasualties int,
@@ -74,7 +74,7 @@ create table Accident (
 );
 
 create table Casualty (
-    accidentID int not null,
+    accidentID varchar(16) not null,
     vehicleReference int not null,
     casualtyReference int not null,
     casualtyClass int,
@@ -93,7 +93,7 @@ create table Casualty (
 );
 
 create table Vehicle (
-    accidentID int not null,
+    accidentID varchar(16) not null,
     vehicleReference int not null,
     vehicleType int,
     towingAndArticulation int,
