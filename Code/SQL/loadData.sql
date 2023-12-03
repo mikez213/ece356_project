@@ -344,8 +344,36 @@ load data infile '' into table LKIMDDecile
     ignore 1 lines;
 
 select 'Accident' as '';
-delete from Accident;
-load data infile '/var/lib/mysql-files/07-Accidents/Accidents0515.csv' into table Accident
+create table TempAccident (
+    accidentID varchar(16) primary key,
+    accidentSeverity int,
+    numberOfVehicles int,
+    numberOfCasualties int,
+    accidentDateTime datetime,
+    lightConditions int,
+    weatherConditions int,
+    roadSurfaceConditions int,
+    carriagewayHazards int,
+    specialConditions int,
+    accidentAreaType int,
+    latitude decimal(10, 8),
+    longitude decimal(11, 8),
+    localAuthorityDistrictID int,
+    localAuthorityHighwayID varchar(64),
+    firstRoadClass int,
+    firstRoadNumber int,
+    secondRoadClass int,
+    secondRoadNumber int,
+    roadType int,
+    speedLimit int,
+    junctionType int,
+    junctionControlType int,
+    pedCrossHumanControlType int,
+    pedCrossPhysicalControlType int,
+    policeOfficerAttendance int,
+    policeForceID int
+);
+load data infile '/var/lib/mysql-files/07-Accidents/Accidents0515.csv' into table TempAccident
     fields terminated by ','
     optionally enclosed by '"'
     lines terminated by '\n'
@@ -354,3 +382,7 @@ load data infile '/var/lib/mysql-files/07-Accidents/Accidents0515.csv' into tabl
     set accidentDateTime = timestamp(str_to_date(@date, '%d/%m/%Y'), str_to_date(@time, '%k:%i')),
     longitude = nullif(@longitude, ''),
     latitude = nullif(@latitude, '');
+
+insert into Accident select * from TempAccident where longitude is not null and latitude is not null;
+
+drop table TempAccident;
