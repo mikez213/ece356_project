@@ -50,13 +50,25 @@ create table Accident (
     junctionControlType int,
     pedCrossHumanControlType int,
     pedCrossPhysicalControlType int,
+    didPoliceOfficerAttend int,
     policeForceID int
 );
 
 create table Casualty (
     accidentID int not null,
-    casualtyReference int not null,
     vehicleReference int not null,
+    casualtyReference int not null,
+    casualtyClass int,
+    casualtyType int,
+    sexOfCasualty int,
+    ageOfCasualty int,
+    casualtySeverity int,
+    pedLocation int,
+    pedMovement int,
+    pedRoadMaintenanceWorker int,
+    casualtyHomeAreaType,
+    carPassengerType int,
+    busPassengerType int,
     primary key(accidentID, vehicleReference, casualtyReference),
     foreign key(accidentID) references Accident(accidentID)
 );
@@ -64,6 +76,24 @@ create table Casualty (
 create table Vehicle (
     accidentID int not null,
     vehicleReference int not null,
+    vehicleType int,
+    towingAndArticulation int,
+    vehicleManoeuvre int,
+    vehicleLocationRestrictedLane int,
+    vehicleLocationJunction int,
+    skiddingAndOverturning int,
+    vehicleLeavingCarriageway int,
+    hitObjectOffCarriageway int,
+    firstPointOfImpact int,
+    isLeftHandDrive int,
+    journeyPurposeOfDriver int,
+    sexOfDriver int,
+    ageOfDriver int,
+    engineCpacity int,
+    propulsionType int,
+    ageOfVehicle int,
+    driverIMDDecile int,
+    driverHomeAreaType int,
     primary key(accidentID, vehicleReference),
     foreign key(accidentID) references Accident(accidentID)
 );
