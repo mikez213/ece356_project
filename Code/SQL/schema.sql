@@ -8,7 +8,7 @@ drop table if exists LKJourneyPurpose;
 drop table if exists LKJunctionControlType;
 drop table if exists LKJunctionDetail;
 drop table if exists LKJunctionLocation;
-drop table if exists LKLightCondition;
+drop table if exists LKLightConditions;
 drop table if exists LocalAuthorityDistrict;
 drop table if exists LocalAuthorityHighway;
 drop table if exists LKPedCrossHuman;
@@ -19,13 +19,32 @@ drop table if exists LKPointOfImpact;
 drop table if exists PoliceForce;
 drop table if exists LKRoadClass;
 drop table if exists LKRoadType;
-drop table if exists LKSexOfDriver;
+drop table if exists LKSex;
 drop table if exists LKVehicleLocation;
 drop table if exists LKVehicleManoeuvre;
 drop table if exists LKVehicleType;
+drop table if exists LKWeatherConditions;
+drop table if exists LKRoadSurfaceConditions;
+drop table if exists LKCarriagewayHazards;
+drop table if exists LKSpecialConditions;
+drop table if exists LKAccidentAreaType;
+drop table if exists LKPoliceOfficerAttendance;
+drop table if exists LKPedRoadMaintenanceWorker;
+drop table if exists LKHomeAreaType;
+drop table if exists LKCarPassengerType;
+drop table if exists LKBusPassengerType;
+drop table if exists LKTowingAndArticulation;
+drop table if exists LKVehicleLocationRestrictedLane;
+drop table if exists LKSkiddingAndOverturning;
+drop table if exists LKVehicleLeavingCarriageway;
+drop table if exists LKHitObjectOffCarriageway;
+drop table if exists LKDriverPosition;
+drop table if exists LKPropulsionType;
+drop table if exists LKIMDDecile;
+drop table if exists LKCasualtyClass;
 
 create table Accident (
-    accidentID int primary key,
+    accidentID varchar(16) primary key,
     accidentSeverity int,
     numberOfVehicles int,
     numberOfCasualties int,
@@ -35,7 +54,7 @@ create table Accident (
     roadSurfaceConditions int,
     carriagewayHazards int,
     specialConditions int,
-    isRural boolean,
+    accidentAreaType int,
     latitude decimal(10, 8),
     longitude decimal(11, 8),
     localAuthorityDistrictID int,
@@ -50,12 +69,12 @@ create table Accident (
     junctionControlType int,
     pedCrossHumanControlType int,
     pedCrossPhysicalControlType int,
-    didPoliceOfficerAttend int,
+    policeOfficerAttendance int,
     policeForceID int
 );
 
 create table Casualty (
-    accidentID int not null,
+    accidentID varchar(16) not null,
     vehicleReference int not null,
     casualtyReference int not null,
     casualtyClass int,
@@ -74,22 +93,22 @@ create table Casualty (
 );
 
 create table Vehicle (
-    accidentID int not null,
+    accidentID varchar(16) not null,
     vehicleReference int not null,
     vehicleType int,
     towingAndArticulation int,
     vehicleManoeuvre int,
     vehicleLocationRestrictedLane int,
-    vehicleLocationJunction int,
+    junctionLocation int,
     skiddingAndOverturning int,
     vehicleLeavingCarriageway int,
     hitObjectOffCarriageway int,
     firstPointOfImpact int,
-    isLeftHandDrive int,
+    driverPosition int,
     journeyPurposeOfDriver int,
     sexOfDriver int,
     ageOfDriver int,
-    engineCpacity int,
+    engineCapacity int,
     propulsionType int,
     ageOfVehicle int,
     driverIMDDecile int,
@@ -133,7 +152,7 @@ create Table LKJunctionLocation (
     junctionLocationDescription varchar(64) not null
 );
 
-create Table LKLightCondition (
+create Table LKLightConditions (
     lightConditionID int primary key,
     lightConditionDescription varchar(64) not null
 );
@@ -178,9 +197,9 @@ create Table PoliceForce (
     policeForcName varchar(64) not null
 );
 
-create Table LKPoliceOfficerAttend (
-    policeOfficerAttendID int primary key,
-    policeOfficerAttendDescription varchar(64) not null
+create Table LKPoliceOfficerAttendance (
+    policeOfficerAttendanceID int primary key,
+    policeOfficerAttendanceDescription varchar(64) not null
 );
 
 create Table LKRoadClass (
@@ -193,9 +212,9 @@ create Table LKRoadType (
     roadTypeDescription varchar(64) not null
 );
 
-create Table LKSexOfDriver (
-    sexOfDriverID int primary key,
-    sexOfDriverDescription varchar(64) not null
+create Table LKSex (
+    sexID int primary key,
+    sexDescription varchar(64) not null
 );
 
 create Table LKVehicleLocation (
@@ -211,4 +230,94 @@ create Table LKVehicleManoeuvre (
 create Table LKVehicleType (
     vehicleTypeID int primary key,
     vehicleTypeDescription varchar(64) not null
+);
+
+create Table LKWeatherConditions (
+    weatherConditionsID int primary key,
+    weatherConditionsDescription varchar(64) not null
+);
+
+create Table LKCarriagewayHazards (
+    carriagewayHazardsID int primary key,
+    carriagewayHazardsDescription varchar(64) not null
+);
+
+create Table LKRoadSurfaceConditions (
+    roadSurfaceConditionsID int primary key,
+    roadSurfaceConditionsDescription varchar(64) not null
+);
+
+create Table LKSpecialConditions (
+    specialConditionsID int primary key,
+    specialConditionsDescription varchar(64) not null
+);
+
+create Table LKAccidentAreaType (
+    accidentAreaTypeID int primary key,
+    accidentAreaTypeDescription varchar(64) not null
+);
+
+create Table LKPedRoadMaintenanceWorker (
+    pedRoadMaintenanceWorkerID int primary key,
+    pedRoadMaintenanceWorkerDescription varchar(64) not null
+);
+
+create Table LKHomeAreaType (
+    homeAreaTypeID int primary key,
+    homeAreaTypeDescription varchar(64) not null
+);
+
+create Table LKCarPassengerType (
+    carPassengerTypeID int primary key,
+    carPassengerTypeDescription varchar(64) not null
+);
+
+create Table LKBusPassengerType (
+    busPassengerTypeID int primary key,
+    busPassengerTypeDescription varchar(64) not null
+);
+
+create Table LKTowingAndArticulation (
+    towingAndArticulationID int primary key,
+    towingAndArticulationDescription varchar(64) not null
+);
+
+create Table LKVehicleLocationRestrictedLane (
+    vehicleLocationRestrictedLaneID int primary key,
+    vehicleLocationRestrictedLaneDescription varchar(64) not null
+);
+
+create Table LKSkiddingAndOverturning (
+    skiddingAndOverturningID int primary key,
+    skiddingAndOverturningDescription varchar(64) not null
+);
+
+create Table LKVehicleLeavingCarriageway (
+    vehicleLeavingCarriagewayID int primary key,
+    vehicleLeavingCarriagewayDescription varchar(64) not null
+);
+
+create Table LKHitObjectOffCarriageway (
+    hitObjectOffCarriagewayID int primary key,
+    hitObjectOffCarriagewayDescription varchar(64) not null
+);
+
+create Table LKDriverPosition (
+    driverPositionID int primary key,
+    driverPositionDescription varchar(64) not null
+);
+
+create Table LKPropulsionType (
+    propulsionType int primary key,
+    propulsionTypeDescription varchar(64) not null
+);
+
+create Table LKIMDDecile (
+    IMDDecileID int primary key,
+    IMDDecileDescription varchar(64) not null
+);
+
+create Table LKCasualtyClass (
+    casualtyClassID int primary key,
+    casualtyClassDescription varchar(64) not null
 );
