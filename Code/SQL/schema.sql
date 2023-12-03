@@ -35,13 +35,13 @@ drop table if exists LKCarPassengerType;
 drop table if exists LKBusPassengerType;
 drop table if exists LKTowingAndArticulation;
 drop table if exists LKVehicleLocationRestrictedLane;
-drop table if exists LKVehicleLocationJunction;
 drop table if exists LKSkiddingAndOverturning;
 drop table if exists LKVehicleLeavingCarriageway;
 drop table if exists LKHitObjectOffCarriageway;
 drop table if exists LKDriverPosition;
 drop table if exists LKPropulsionType;
 drop table if exists LKIMDDecile;
+drop table if exists LKCasualtyClass;
 
 create table Accident (
     accidentID int primary key,
@@ -99,7 +99,7 @@ create table Vehicle (
     towingAndArticulation int,
     vehicleManoeuvre int,
     vehicleLocationRestrictedLane int,
-    vehicleLocationJunction int,
+    junctionLocation int,
     skiddingAndOverturning int,
     vehicleLeavingCarriageway int,
     hitObjectOffCarriageway int,
@@ -287,11 +287,6 @@ create Table LKVehicleLocationRestrictedLane (
     vehicleLocationRestrictedLaneDescription varchar(64) not null
 );
 
-create Table LKVehicleLocationJunction (
-    vehicleLocationJunctionID int primary key,
-    vehicleLocationJunctionDescription varchar(64) not null
-);
-
 create Table LKSkiddingAndOverturning (
     skiddingAndOverturningID int primary key,
     skiddingAndOverturningDescription varchar(64) not null
@@ -320,4 +315,9 @@ create Table LKPropulsionType (
 create Table LKIMDDecile (
     IMDDecileID int primary key,
     IMDDecileDescription varchar(64) not null
+);
+
+create Table LKCasualtyClass (
+    casualtyClassID int primary key,
+    casualtyClassDescription varchar(64) not null
 );
