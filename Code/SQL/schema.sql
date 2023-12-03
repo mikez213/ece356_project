@@ -2,7 +2,6 @@ drop table if exists LKAccidentSeverity;
 drop table if exists LKCasualtySeverity;
 drop table if exists LKCasualtyType;
 drop table if exists LKJourneyPurpose;
-drop table if exists LKJunctionControlType;
 drop table if exists LKJunctionDetail;
 drop table if exists LKJunctionLocation;
 drop table if exists LKLightConditions;
@@ -47,32 +46,32 @@ drop table if exists Accident;
 
 create table Accident (
     accidentID varchar(16) primary key,
-    accidentSeverity int,
+    accidentSeverity int references LKAccidentSeverity(accidentSeverityID),
     numberOfVehicles int,
     numberOfCasualties int,
     accidentDateTime datetime,
-    lightConditions int,
-    weatherConditions int,
-    roadSurfaceConditions int,
-    carriagewayHazards int,
-    specialConditions int,
-    accidentAreaType int,
-    latitude decimal(10, 8) not null,
-    longitude decimal(11, 8) not null,
-    localAuthorityDistrictID int,
-    localAuthorityHighwayID varchar(64),
-    firstRoadClass int,
+    lightConditions int references LKLightConditions(lightConditionID),
+    weatherConditions int references LKWeatherConditions(weatherConditionsID),
+    roadSurfaceConditions int references LKRoadSurfaceConditions(roadSurfaceConditionsID),
+    carriagewayHazards int references LKCarriagewayHazards(carriagewayHazardsID),
+    specialConditions int references LKSpecialConditions(specialConditionsID),
+    accidentAreaType int references LKAccidentAreaType(accidentAreaTypeID),
+    latitude decimal(10, 8),
+    longitude decimal(11, 8),
+    localAuthorityDistrictID int references LocalAuthorityDistrict(localAuthorityDistrictID),
+    localAuthorityHighwayID varchar(64) references LocalAuthorityHighway(localAuthorityHighwayID),
+    firstRoadClass int references LKRoadClass(roadClassID),
     firstRoadNumber int,
-    secondRoadClass int,
+    secondRoadClass int references LKRoadClass(roadClassID),
     secondRoadNumber int,
-    roadType int,
+    roadType int references LKRoadType(roadTypeID),
     speedLimit int,
-    junctionType int,
-    junctionControlType int,
-    pedCrossHumanControlType int,
-    pedCrossPhysicalControlType int,
-    policeOfficerAttendance int,
-    policeForceID int
+    junctionType int references LKJunctionDetail(junctionDetailID),
+    junctionControlType int references LKJunctionControl,
+    pedCrossHumanControlType int references LKPedCrossHuman(pedCrossHumanID),
+    pedCrossPhysicalControlType int references LKPedCrossPhysical(pedCrossPhysicalID),
+    policeOfficerAttendance int references LKPoliceOfficerAttendance(policeOfficerAttendanceID),
+    policeForceID int references PoliceForce(policeForceID)
 );
 
 create table Casualty (
