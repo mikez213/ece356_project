@@ -59,7 +59,7 @@ create table Accident (
     latitude decimal(10, 8),
     longitude decimal(11, 8),
     localAuthorityDistrictID int,
-    localAuthorityHighwayID int,
+    localAuthorityHighwayID varchar(64),
     firstRoadClass int,
     firstRoadNumber int,
     secondRoadClass int,

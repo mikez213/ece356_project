@@ -345,36 +345,12 @@ load data infile '' into table LKIMDDecile
 
 select 'Accident' as '';
 delete from Accident;
-load data infile '' into table Accident
+load data infile '/var/lib/mysql-files/07-Accidents/Accidents0515.csv' into table Accident
     fields terminated by ','
     optionally enclosed by '"'
     lines terminated by '\n'
     ignore 1 lines
-    (accidentID, @locEasting, @locNorthing, @long, @lat, @policeForce, @accSeverity, @numVehicles, @numCasualties, @date, @dayOfWeek, @time, @localAuthDistrict, @localAuthHighway, @firstRoadClass, @firstRoadNum, @roadType, @speedLimit, @juncDetail, @juncControl, @secondRoadClass, @secondRoadNum, @pedCrossHuman, @pedCrossPhysical, @lightCond, @weatherCond, @roadSurfaceCond, @specialCond, @carriagewayHazard, @urbanRural, @didPoliceAttend, @lsoa);
-    set accidentSeverity = @accSeverity
-    set numberOfVehicles = @numVehicles
-    set numberOfCasualties = @numCasualties
-    set accidentDateTime = timestamp(str_to_date(@date, '%d/%m/%Y'), str_to_date(@time, '%k:%i'))
-    set lightConditions = @lightCond
-    set weatherConditions = @weatherCond
-    set roadSurfaceConditions = @roadSurfaceCond
-    set carriagewayHazards = @carriagewayHazard
-    set specialConditions = @specialCond
-    set accidentAreaType = @urbanRural
-    set latitude = @lat
-    set longitude = @long
-    set localAuthorityDistrictID = @localAuthDistrict
-    set localAuthorityHighwayID = @localAuthHighway
-    set firstRoadClass = @firstRoadClass
-    set firstRoadNumber = @firstRoadNum
-    set secondRoadClass = @secondRoadClass
-    set secondRoadNumber = @secondRoadNum
-    set roadType = @roadType
-    set speedLimit = @speedLimit
-    set junctionType = @juncDetail
-    set junctionControlType = @juncControl
-    set pedCrossHumanControlType = @pedCrossHuman
-    set pedCrossPhysicalControlType = @pedCrossPhysical
-    set policeOfficerAttendance = @didPoliceAttend
-    set policeForceID = @policeForce
-    
+    (accidentID, @locEasting, @locNorthing, @longitude, @latitude, policeForceID, accidentSeverity, numberOfVehicles, numberOfCasualties, @date, @dayOfWeek, @time, localAuthorityDistrictID, localAuthorityHighwayID, firstRoadClass, firstRoadNumber, roadType, speedLimit, junctionType, junctionControlType, secondRoadClass, secondRoadNumber, pedCrossHumanControlType, pedCrossPhysicalControlType, lightConditions, weatherConditions, roadSurfaceConditions, specialConditions, carriagewayHazards, accidentAreaType, policeOfficerAttendance, @lsoa)
+    set accidentDateTime = timestamp(str_to_date(@date, '%d/%m/%Y'), str_to_date(@time, '%k:%i')),
+    longitude = nullif(@longitude, ''),
+    latitude = nullif(@latitude, '');
