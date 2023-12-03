@@ -1,15 +1,63 @@
 drop table if exists Accident;
 drop table if exists Casualty;
 drop table if exists Vehicle;
+drop table if exists LKAccidentSeverity;
+drop table if exists LKCasualtySeverity;
+drop table if exists LKCasualtyType;
+drop table if exists LKJourneyPurpose;
+drop table if exists LKJunctionControlType;
+drop table if exists LKJunctionDetail;
+drop table if exists LKJunctionLocation;
+drop table if exists LKLightCondition;
+drop table if exists LocalAuthorityDistrict;
+drop table if exists LocalAuthorityHighway;
+drop table if exists LKPedCrossHuman;
+drop table if exists LKPedCrossPhysical;
+drop table if exists LKPedLocation;
+drop table if exists LKPedMovement;
+drop table if exists LKPointOfImpact;
+drop table if exists PoliceForce;
+drop table if exists LKRoadClass;
+drop table if exists LKRoadType;
+drop table if exists LKSexOfDriver;
+drop table if exists LKVehicleLocation;
+drop table if exists LKVehicleManoeuvre;
+drop table if exists LKVehicleType;
 
 create table Accident (
-    accidentID int primary key
+    accidentID int primary key,
+    accidentSeverity int,
+    numberOfVehicles int,
+    numberOfCasualties int,
+    accidentDateTime datetime,
+    lightConditions int,
+    weatherConditions int,
+    roadSurfaceConditions int,
+    carriagewayHazards int,
+    specialConditions int,
+    isRural boolean,
+    latitude decimal(10, 8),
+    longitude decimal(11, 8),
+    localAuthorityDistrictID int,
+    localAuthorityHighwayID int,
+    firstRoadClass int,
+    firstRoadNumber int,
+    secondRoadClass int,
+    secondRoadNumber int,
+    roadType int,
+    speedLimit int,
+    junctionType int,
+    junctionControlType int,
+    pedCrossHumanControlType int,
+    pedCrossPhysicalControlType int,
+    policeForceID int
 );
 
 create table Casualty (
     accidentID int not null,
     casualtyReference int not null,
-    primary key(accidentID, casualtyReference),
+    vehicleReference int not null,
+    primary key(accidentID, vehicleReference, casualtyReference),
     foreign key(accidentID) references Accident(accidentID)
 );
 
@@ -60,12 +108,12 @@ create Table LKLightCondition (
     lightConditionDescription varchar(64) not null
 );
 
-create Table LKLocalAuthorityDistrict (
+create Table LocalAuthorityDistrict (
     localAuthorityDistrictID int primary key,
     localAuthorityDistrictDescription varchar(64) not null
 );
 
-create Table LKLocalAuthorityHighway (
+create Table LocalAuthorityHighway (
     localAuthorityHighwayID int primary key,
     localAuthorityHighwayDescription varchar(64) not null
 );
@@ -95,9 +143,9 @@ create Table LKPointOfImpact (
     pointOfImpactDescription varchar(64) not null
 );
 
-create Table LKPoliceForce (
+create Table PoliceForce (
     policeForceID int primary key,
-    policeForceDescription varchar(64) not null
+    policeForcName varchar(64) not null
 );
 
 create Table LKPoliceOfficerAttend (
