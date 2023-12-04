@@ -3,7 +3,7 @@ drop table if exists LKCasualtySeverity;
 drop table if exists LKCasualtyType;
 drop table if exists LKJourneyPurpose;
 drop table if exists LKJunctionDetail;
-drop table if exists LKJunctionLocation;
+drop table if exists LKVehicleLocationJunction;
 drop table if exists LKLightConditions;
 drop table if exists LocalAuthorityDistrict;
 drop table if exists LocalAuthorityHighway;
@@ -16,7 +16,6 @@ drop table if exists PoliceForce;
 drop table if exists LKRoadClass;
 drop table if exists LKRoadType;
 drop table if exists LKSex;
-drop table if exists LKVehicleLocation;
 drop table if exists LKVehicleManoeuvre;
 drop table if exists LKVehicleType;
 drop table if exists LKWeatherConditions;
@@ -75,48 +74,47 @@ create table Accident (
 );
 
 create table Casualty (
-    accidentID varchar(16) not null,
+    accidentID varchar(16) not null references Accident(accidentID),
     vehicleReference int not null,
     casualtyReference int not null,
-    casualtyClass int,
-    casualtyType int,
-    sexOfCasualty int,
+    casualtyClass int references LKCasualtyClass(casualtyClassID),
+    casualtyType int LKCasualtyType(casualtyTypeID),
+    sexOfCasualty int references LKSex(sexID),
     ageOfCasualty int,
-    casualtySeverity int,
-    pedLocation int,
-    pedMovement int,
-    pedRoadMaintenanceWorker int,
-    casualtyHomeAreaType int,
-    carPassengerType int,
-    busPassengerType int,
+    casualtySeverity int references LKCasualtySeverity(casualtySeverityID),
+    pedLocation int references LKPedLocation(pedLocationID),
+    pedMovement int references LKPedMovement(pedMovementID),
+    pedRoadMaintenanceWorker int references LKPedRoadMaintenanceWorker(pedRoadMaintenanceWorkerID),
+    casualtyHomeAreaType int references LKHomeAreaType(homeAreaTypeID),
+    carPassengerType int references LKCarPassengerType(carPassengerTypeID),
+    busPassengerType int references LKBusPassengerType(busPassengerTypeID),
     primary key(accidentID, vehicleReference, casualtyReference),
-    foreign key(accidentID) references Accident(accidentID)
+    foreign key(accidentID, vehicleReference) references Vehicle(accidentID, vehicleReference)
 );
 
 create table Vehicle (
-    accidentID varchar(16) not null,
+    accidentID varchar(16) not null references Accident(accidentID),
     vehicleReference int not null,
-    vehicleType int,
-    towingAndArticulation int,
-    vehicleManoeuvre int,
-    vehicleLocationRestrictedLane int,
-    junctionLocation int,
-    skiddingAndOverturning int,
-    vehicleLeavingCarriageway int,
-    hitObjectOffCarriageway int,
-    hitObjectInCarriageway int,
-    firstPointOfImpact int,
-    driverPosition int,
-    journeyPurposeOfDriver int,
-    sexOfDriver int,
+    vehicleType int references LKVehicleType(vehicleTypeID),
+    towingAndArticulation int references LKTowingAndArticulation(towingAndArticulationID),
+    vehicleManoeuvre int references LKVehicleManoeuvre(vehicleManoeuvreID),
+    vehicleLocationRestrictedLane int references LKVehicleLocationRestrictedLane(vehicleLocationRestrictedLaneID),
+    vehicleLocationJunction int references LKVehicleLocationJunction(),
+    skiddingAndOverturning int references LKSkiddingAndOverturning(skiddingAndOverturningID),
+    vehicleLeavingCarriageway int references LKVehicleLeavingCarriageway(vehicleLeavingCarriagewayID),
+    hitObjectOffCarriageway int references LKHitObjectOffCarriageway(hitObjectOffCarriagewayID),
+    hitObjectInCarriageway int references LKHitObjectInCarriageway(hitObjectInCarriagewayID),,
+    firstPointOfImpact int references LKPointOfImpact(pointOfImpactID),
+    driverPosition int references LKDriverPosition(driverPositionID),
+    journeyPurposeOfDriver int references LKJourneyPurpose(journeyPurposeID),
+    sexOfDriver int references LKSex(sexID),
     ageOfDriver int,
     engineCapacity int,
-    propulsionType int,
+    propulsionType int references LKPropulsionType(propulsionTypeID),
     ageOfVehicle int,
-    driverIMDDecile int,
-    driverHomeAreaType int,
-    primary key(accidentID, vehicleReference),
-    foreign key(accidentID) references Accident(accidentID)
+    driverIMDDecile int references LKIMDDecile(IMDDecileID),
+    driverHomeAreaType int references LKHomeAreaType(homeAreaTypeID),
+    primary key(accidentID, vehicleReference)
 );
 
 create Table LKAccidentSeverity (
@@ -149,9 +147,9 @@ create Table LKJunctionDetail (
     junctionDetailDescription varchar(64) not null
 );
 
-create Table LKJunctionLocation (
-    junctionLocationID int primary key,
-    junctionLocationDescription varchar(64) not null
+create Table LKVehicleLocationJunction (
+    vehicleLocationJunctionID int primary key,
+    vehicleLocationJunctionDescription varchar(64) not null
 );
 
 create Table LKLightConditions (
@@ -217,11 +215,6 @@ create Table LKRoadType (
 create Table LKSex (
     sexID int primary key,
     sexDescription varchar(64) not null
-);
-
-create Table LKVehicleLocation (
-    vehicleLocationID int primary key,
-    vehicleLocationDescription varchar(64) not null
 );
 
 create Table LKVehicleManoeuvre (
@@ -315,7 +308,7 @@ create Table LKDriverPosition (
 );
 
 create Table LKPropulsionType (
-    propulsionType int primary key,
+    propulsionTypeID int primary key,
     propulsionTypeDescription varchar(64) not null
 );
 
