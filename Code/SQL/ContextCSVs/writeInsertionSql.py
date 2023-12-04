@@ -15,7 +15,8 @@ CSVNameList = ["Weather_Conditions.csv",
                "Hit_Object_In_Carriageway.csv",
                "Driver_Position.csv",
                "Propulsion_Type.csv",
-               "IMD_Decile.csv"]
+               "IMD_Decile.csv",
+               "Towing_And_Articulation.csv"]
 
 tableNameList = ["LKWeatherConditions", 
                  "LKRoadSurfaceConditions",
@@ -32,7 +33,8 @@ tableNameList = ["LKWeatherConditions",
                 "LKHitObjectInCarriageway",
                 "LKDriverPosition",
                 "LKPropulsionType",
-                "LKIMDDecile"]
+                "LKIMDDecile",
+                "LKTowingAndArticulation"]
 
 sqlFile = open("insertContextCSVs.sql", 'w')
 

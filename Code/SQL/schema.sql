@@ -58,7 +58,7 @@ create table Accident (
     latitude decimal(10, 8),
     longitude decimal(11, 8),
     localAuthorityDistrictID int references LocalAuthorityDistrict(localAuthorityDistrictID),
-    localAuthorityHighwayID varchar(64) references LocalAuthorityHighway(localAuthorityHighwayID),
+    localAuthorityHighwayID varchar(12) references LocalAuthorityHighway(localAuthorityHighwayID),
     firstRoadClass int references LKRoadClass(roadClassID),
     firstRoadNumber int,
     secondRoadClass int references LKRoadClass(roadClassID),
@@ -163,7 +163,7 @@ create Table LocalAuthorityDistrict (
 );
 
 create Table LocalAuthorityHighway (
-    localAuthorityHighwayID int primary key,
+    localAuthorityHighwayID varchar(12) primary key,
     localAuthorityHighwayDescription varchar(64) not null
 );
 
@@ -174,17 +174,17 @@ create Table LKPedCrossHuman (
 
 create Table LKPedCrossPhysical (
     pedCrossPhysicalID int primary key,
-    pedCrossPhysicalDescription varchar(64) not null
+    pedCrossPhysicalDescription varchar(128) not null
 );
 
 create Table LKPedLocation (
     pedLocationID int primary key,
-    pedLocationDescription varchar(64) not null
+    pedLocationDescription varchar(128) not null
 );
 
 create Table LKPedMovement (
     pedMovementID int primary key,
-    pedMovementDescription varchar(64) not null
+    pedMovementDescription varchar(128) not null
 );
 
 create Table LKPointOfImpact (
@@ -199,7 +199,7 @@ create Table PoliceForce (
 
 create Table LKPoliceOfficerAttendance (
     policeOfficerAttendanceID int primary key,
-    policeOfficerAttendanceDescription varchar(64) not null
+    policeOfficerAttendanceDescription varchar(128) not null
 );
 
 create Table LKRoadClass (
