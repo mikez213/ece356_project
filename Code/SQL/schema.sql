@@ -194,7 +194,7 @@ create Table LKPointOfImpact (
 
 create Table PoliceForce (
     policeForceID int primary key,
-    policeForcName varchar(64) not null
+    policeForceName varchar(64) not null
 );
 
 create Table LKPoliceOfficerAttendance (

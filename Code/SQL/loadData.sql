@@ -166,14 +166,6 @@ load data infile '/var/lib/mysql-files/07-Accidents/contextCSVs/LKSexOfDriver.cs
     lines terminated by '\n'
     ignore 1 lines;
 
-select 'LKVehicleLocation' AS '';
-delete from LKVehicleLocation;
-load data infile '/var/lib/mysql-files/07-Accidents/contextCSVs/Vehicle_Location.csv' into table LKVehicleLocation
-    fields terminated by ','
-    optionally enclosed by '"'
-    lines terminated by '\n'
-    ignore 1 lines;
-
 select 'LKVehicleManoeuvre' AS '';
 delete from LKVehicleManoeuvre;
 load data infile '/var/lib/mysql-files/07-Accidents/contextCSVs/Vehicle_Manoeuvre.csv' into table LKVehicleManoeuvre
@@ -193,7 +185,7 @@ load data infile '/var/lib/mysql-files/07-Accidents/contextCSVs/Vehicle_Type.csv
 -- TODO: local file
 select 'LKWeatherConditions' AS '';
 delete from LKWeatherConditions;
-load data infile '' into table LKWeatherConditions
+load data local infile 'Code/SQL/ContextCSVs/Weather_Conditions.csv' into table LKWeatherConditions
     fields terminated by ','
     optionally enclosed by '"'
     lines terminated by '\n'
@@ -344,36 +336,8 @@ load data infile '' into table LKIMDDecile
     ignore 1 lines;
 
 select 'Accident' as '';
-create table TempAccident (
-    accidentID varchar(16) primary key,
-    accidentSeverity int,
-    numberOfVehicles int,
-    numberOfCasualties int,
-    accidentDateTime datetime,
-    lightConditions int,
-    weatherConditions int,
-    roadSurfaceConditions int,
-    carriagewayHazards int,
-    specialConditions int,
-    accidentAreaType int,
-    latitude decimal(10, 8),
-    longitude decimal(11, 8),
-    localAuthorityDistrictID int,
-    localAuthorityHighwayID varchar(64),
-    firstRoadClass int,
-    firstRoadNumber int,
-    secondRoadClass int,
-    secondRoadNumber int,
-    roadType int,
-    speedLimit int,
-    junctionType int,
-    junctionControlType int,
-    pedCrossHumanControlType int,
-    pedCrossPhysicalControlType int,
-    policeOfficerAttendance int,
-    policeForceID int
-);
-load data infile '/var/lib/mysql-files/07-Accidents/Accidents0515.csv' into table TempAccident
+delete from Accident;
+load data infile '/var/lib/mysql-files/07-Accidents/Accidents0515.csv' into table Accident
     fields terminated by ','
     optionally enclosed by '"'
     lines terminated by '\n'
@@ -383,6 +347,20 @@ load data infile '/var/lib/mysql-files/07-Accidents/Accidents0515.csv' into tabl
     longitude = nullif(@longitude, ''),
     latitude = nullif(@latitude, '');
 
-insert into Accident select * from TempAccident where longitude is not null and latitude is not null;
+select 'Vehicle' as '';
+delete from Vehicle;
+load data infile '/var/lib/mysql-files/07-Accidents/Vehicles0515.csv' into table Vehicle
+    fields terminated by ','
+    optionally enclosed by '"'
+    lines terminated by '\n'
+    ignore 1 lines
+    (accidentID, vehicleReference, vehicleType, towingAndArticulation, vehicleManoeuvre, vehicleLocationRestrictedLane, vehicleLocationJunction, skiddingAndOverturning, hitObjectInCarriageway, vehicleLeavingCarriageway, hitObjectOffCarriageway, firstPointOfImpact, driverPosition, journeyPurposeOfDriver, sexOfDriver, ageOfDriver, @ageBand, engineCapacity, propulsionType, ageOfVehicle, driverIMDDecile, driverHomeAreaType, @extra);
 
-drop table TempAccident;
+select 'Casualty' as '';
+delete from Casualty;
+load data infile '/var/lib/mysql-files/07-Accidents/Casualties0515.csv' into table Casualty
+    fields terminated by ','
+    optionally enclosed by '"'
+    lines terminated by '\n'
+    ignore 1 lines
+    (accidentID, vehicleReference, casualtyReference, casualtyClass, sexOfCasualty, ageOfCasualty, @ageBand, casualtySeverity, pedLocation, pedMovement, carPassengerType, busPassengerType, pedRoadMaintenanceWorker, casualtyType, casualtyHomeAreaType, @extra);
