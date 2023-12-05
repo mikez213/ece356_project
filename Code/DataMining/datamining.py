@@ -45,6 +45,13 @@ db = mysql.connector.connect(
 
 features = [
     "numberOfVehicles",
+    "lightConditions",
+    "weatherConditions",
+    "roadSurfaceConditions",
+    "carriagewayHazards",
+    "specialConditions",
+    "accidentAreaType",
+    "roadType",
     "speedLimit",
     "vehicleType",
     "vehicleManoeuvre",
@@ -61,7 +68,6 @@ features = [
     "ageOfDriver",
     "propulsionType",
     "driverIMDDecile",
-    "driverHomeAreaType",
 ]
 
 query = """with MostSevereCasualty as (select accidentID, vehicleReference, min(casualtySeverity) as mostSevereCasualty from Casualty where casualtyClass = 1 group by accidentID, vehicleReference)
