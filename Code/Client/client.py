@@ -1,7 +1,10 @@
 # Importing module
 import mysql.connector
 import datetime
+import time
+# before running make sure to change the db from db_m476zhan to db_team66
 
+database = "db356_m476zhan"
 # The following items should be present:
 # (a) Ideal client requirements
 # (b) Actual client proposed
@@ -42,9 +45,10 @@ accident = {
 
 
 def search(mydb, mycursor):
-    mycursor.execute("SELECT table_name FROM information_schema.tables where table_schema = 'NHL_356';")
+    db = "SELECT table_name FROM information_schema.tables where table_schema = '"+ database+"';"
+    mycursor.execute(db)
     myresult = mycursor.fetchall()
-    tables = [item[0] for item in myresult]
+    tables = [item[0] for item in myresult if not item[0].startswith('LK')]
     print(tables)
     # for x in myresult:
     #     print(x)
@@ -56,6 +60,8 @@ def search(mydb, mycursor):
         print("select a table:", tables)
         input_table = input(criteria)
         if input_table == "done" or input_table == "":
+            if not criteria:
+                return
             break
         if input_table in tables:
             mycursor.execute("DESCRIBE " + input_table)
@@ -76,28 +82,6 @@ def search(mydb, mycursor):
         else:
             print("not a category")
 
-    # get info categories
-    # print("Which category(s) do you want information about? Enter one at a time, hit enter or done to stop")
-    # info = []
-    # while True:
-    #     print("select a table:", tables)
-    #     input_table = input(info)
-    #     if input_table == "done" or input_table == "":
-    #         break
-    #     if input_table in tables:
-    #         mycursor.execute("DESCRIBE " + input_table)
-    #         myresult = mycursor.fetchall()
-    #         attributes = [item[0] for item in myresult]
-    #         print(attributes)
-    #         input_attribute = input("select an attribute: ")
-    #         if input_attribute in attributes:
-    #             info.append((input_table, input_attribute))
-    #
-    #         else:
-    #             print("not an attribute")
-    #     else:
-    #         print("not a category")
-
     first = True
     query = ""
     used_tables = []
@@ -108,7 +92,7 @@ def search(mydb, mycursor):
             query = "SELECT * FROM " + item[0]
             first = False
         elif item[0] not in used_tables:
-            query += " INNER JOIN " + item[0] + " USING (gameID)"  # switch to gameID
+            query += " INNER JOIN " + item[0] + " USING (accidentID)"  # switch to accidentID
 
     print(query)
 
@@ -123,7 +107,7 @@ def search(mydb, mycursor):
         first = False
 
     print(query)
-    # SELECT * FROM GameGoals INNER JOIN GamePlays USING (playID) WHERE (playID < 3) AND (playID < 19)
+    # SELECT * FROM GameGoals INNER JOIN GamePlays USING (accidentID) WHERE (accidentID < 3) AND (accidentID < 19)
     mycursor.execute(query + ";")
     print(mycursor.column_names)
     myresult = mycursor.fetchmany(25)  # 25 rows max
@@ -136,26 +120,25 @@ def modify(mydb, mycursor):
     if accidentID == "exit":
         return
 
-    mycursor.execute("SELECT table_name FROM information_schema.tables where table_schema = 'NHL_356';")
+    mycursor.execute("SELECT table_name FROM information_schema.tables where table_schema = 'db356_m476zhan';")
     myresult = mycursor.fetchall()
-    tables = [item[0] for item in myresult]
+    tables = [item[0] for item in myresult if not item[0].startswith('LK')]
     print(tables)
 
     target = []
 
     print("Which category(s) do you want to modify? Enter one at a time, hit enter or done to stop")
     while True:
-        print("select a category: ")
+        print("select a category or done: ")
         input_table = input(target)
         if input_table == "done" or input_table == "":
             break
         if input_table in tables:
             mycursor.execute("DESCRIBE " + input_table)
             myresult = mycursor.fetchall()
-
             attributes = [(item[0], item[1]) for item in myresult]
-            # att_type = [item[1] for item in myresult]
             print(attributes)
+
             input_attribute = input("enter an attribute to be modified: ")
 
             # here copy the code for getting information from tables from query
@@ -171,7 +154,7 @@ def modify(mydb, mycursor):
     # need to add checks for valid accidentID
     for item in target:
         current_val = ""
-        current_val += "SELECT " + item[1] + " FROM " + item[0] + " WHERE (gameID = " + accidentID + ");"
+        current_val += "SELECT " + item[1] + " FROM " + item[0] + " WHERE (accidentID = " + accidentID + ");"
         print(current_val)
         mycursor.execute(current_val)
         myresult = mycursor.fetchall()
@@ -183,14 +166,14 @@ def modify(mydb, mycursor):
         new_value = input("input new value: ")
 
         query = ""
-        query += "UPDATE " + item[0] + " SET " + item[1] + "=" + str(new_value) + " where gameID = " + accidentID + ";"
+        query += "UPDATE " + item[0] + " SET " + item[1] + "=" + str(new_value) + " where accidentID = " + accidentID + ";"
         print(query)
         mycursor.execute(query)
         myresult = mycursor.fetchall()
         print(myresult)
 
         current_val = ""
-        current_val += "SELECT " + item[1] + " FROM " + item[0] + " WHERE (gameID = " + accidentID + ");"
+        current_val += "SELECT " + item[1] + " FROM " + item[0] + " WHERE (accidentID = " + accidentID + ");"
         print(current_val)
         mycursor.execute(current_val)
         myresult = mycursor.fetchall()
@@ -199,26 +182,91 @@ def modify(mydb, mycursor):
 
 
 def create(mydb, mycursor):
-    crash = {}
+    query = "SELECT MAX(accidentID) FROM Accident;"
+    print(query)
+    mycursor.execute(query)
+    myresult = mycursor.fetchall()
+    result = [item[0] for item in myresult]
+    print("current max accidentID is ", result)
+    print(str(result[0])[4:])   # might need to revise this for acc instead of game
+    second_accident = str(int(str(result[0])[4:])+10)
+    # generate new accident ID
 
-    print("Details:")
+    Accident = {}  # 26 entries
+    Casualty = {}  # 12(13)
+    Vehicle = {}  # 18(19)
+
+    print("Creating new accident:")
     year = int(input("Year:"))
     month = int(input("Month:"))
     day = int(input("Day:"))
-    # hour = int(input("Hour:"))
-    # minute = int(input("Min:"))
-    crash["date"] = datetime.date(year, month, day)
+
+
+    mycursor.execute("DESCRIBE Accident")
+    myresult = mycursor.fetchall()
+    attributes = [(item[0], item[1]) for item in myresult]
+    print(attributes)
+
+    # example:
+    accident = {}
+    for item in attributes:
+        if not item[0] == "accidentID" or "accidentDateTime":
+            accident[item[0]] = input(str(item[0]))
+
+    accident["accidentID"] = "" + str(year)+second_accident + ""
+    # accident["accidentDateTime"] = newday
+    #accident["accidentDateTime"] = '20120618' 
+    accident["accidentDateTime"] = datetime.date(year, month, day).strftime("%Y%m%d")
+    print(accident)
+
+    table = "Accident"
+    
+    query = "INSERT INTO " + table + " VALUES ("
+
+    first = True
+    for item in attributes:
+        if not first:
+            query += ", " 
+        query += "'" + accident[item[0]] + "'"
+        first = False
+        
+    # query += ", '1'"
+        
+    query += ");"
+    print(query)
+
+    mycursor = mydb.cursor()
+    try:
+        mycursor.execute(query)
+        mydb.commit()
+        res = mycursor.fetchall()
+    except res is not None:
+        print(res)
+    finally:
+        mycursor.close()
+    
+    mycursor = mydb.cursor()
+
+    # mydb.commit()
+    # mycursor.execute(query)
+    # myresult = mycursor.fetchall()
+    # print(myresult)
+    time.sleep(1)
+    returntest = "select * from Accident where accidentID = '" + accident["accidentID"] + "';"
+    mycursor.execute(returntest)
+    myresult = mycursor.fetchall()
+    print(returntest)
+
+
+
     # crash["time"] = datetime.time(hour, minute)
-
-    print(crash)
-
 
 # Creating connection object
 mydb = mysql.connector.connect(
     host="riku.shoshin.uwaterloo.ca",
     user="m476zhan",
     password="1234",
-    database="db356_m476zhan"
+    database=database
 )
 
 mycursor = mydb.cursor()
@@ -252,3 +300,5 @@ while True:
 # modify entry
 
 # create new accident
+
+#
