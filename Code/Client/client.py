@@ -180,7 +180,7 @@ def modify(mydb, mycursor):
         result = [item[0] for item in myresult]
         print("current value is ", result)
 
-
+# check end of file for testing code
 def create(mydb, mycursor):
     query = "SELECT MAX(accidentID) FROM Accident;"
     print(query)
@@ -189,7 +189,7 @@ def create(mydb, mycursor):
     result = [item[0] for item in myresult]
     print("current max accidentID is ", result)
     print(str(result[0])[4:])   # might need to revise this for acc instead of game
-    second_accident = str(int(str(result[0])[4:])+10)
+    second_accident = str(int(str(result[0])[4:])+11)
     # generate new accident ID
 
     Accident = {}  # 26 entries
@@ -202,60 +202,64 @@ def create(mydb, mycursor):
     day = int(input("Day:"))
 
 
-    mycursor.execute("DESCRIBE Accident")
-    myresult = mycursor.fetchall()
-    attributes = [(item[0], item[1]) for item in myresult]
-    print(attributes)
-
-    # example:
-    accident = {}
-    for item in attributes:
-        if not item[0] == "accidentID" or "accidentDateTime":
-            accident[item[0]] = input(str(item[0]))
-
-    accident["accidentID"] = "" + str(year)+second_accident + ""
-    # accident["accidentDateTime"] = newday
-    #accident["accidentDateTime"] = '20120618' 
-    accident["accidentDateTime"] = datetime.date(year, month, day).strftime("%Y%m%d")
-    print(accident)
-
-    table = "Accident"
+    tables = ["Accident", "Vehicle", "Casualty"]
     
-    query = "INSERT INTO " + table + " VALUES ("
+    for table in tables:
+        des = "DESCRIBE " + table
+        mycursor.execute(des)
+        myresult = mycursor.fetchall()
+        attributes = [(item[0], item[1]) for item in myresult]
+        print(attributes)
 
-    first = True
-    for item in attributes:
-        if not first:
-            query += ", " 
-        query += "'" + accident[item[0]] + "'"
-        first = False
-        
-    # query += ", '1'"
-        
-    query += ");"
-    print(query)
+        # example:
+        accident = {}
+        for item in attributes:
+            if not item[0] == "accidentID" or "accidentDateTime":
+                accident[item[0]] = input(str(item[0]))
 
-    mycursor = mydb.cursor()
-    try:
-        mycursor.execute(query)
-        mydb.commit()
-        res = mycursor.fetchall()
-    except res is not None:
-        print(res)
-    finally:
-        mycursor.close()
+        accident["accidentID"] = "" + str(year)+second_accident + ""
+        
+        if table == "Accident":
+            accident["accidentDateTime"] = datetime.date(year, month, day).strftime("%Y%m%d")
+        
+        query = "INSERT INTO " + table + " VALUES ("
+
+        first = True
+        for item in attributes:
+            if not first:
+                query += ", " 
+            query += "'" + accident[item[0]] + "'"
+            first = False
+            
+        # query += ", '1'"
+            
+        query += ");"
+        print(query)
+
+        mycursor = mydb.cursor()
+        try:
+            mycursor.execute(query)
+            mydb.commit()
+            res = mycursor.fetchall()
+        except res is not None:
+            print(res)
+        finally:
+            mycursor.close()
+        
+        mycursor = mydb.cursor()
+
+        print(table + " table created succesfully")
     
-    mycursor = mydb.cursor()
-
+    print("all tables created")
     # mydb.commit()
     # mycursor.execute(query)
     # myresult = mycursor.fetchall()
     # print(myresult)
-    time.sleep(1)
-    returntest = "select * from Accident where accidentID = '" + accident["accidentID"] + "';"
-    mycursor.execute(returntest)
-    myresult = mycursor.fetchall()
-    print(returntest)
+    # time.sleep(1)
+    # returntest = "select * from Accident where accidentID = '" + accident["accidentID"] + "';"
+    # mycursor.execute(returntest)
+    # myresult = mycursor.fetchall()
+    # print(returntest)
 
 
 
@@ -302,3 +306,74 @@ while True:
 # create new accident
 
 #
+
+# copy this to test create:
+""" 
+create
+2018
+12
+30
+4
+5
+6
+7
+8
+9
+1
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+1
+2
+3
+4
+5
+6
+7
+8
+9
+1
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+1
+2
+3
+4
+5
+6
+7
+8
+9
+1
+11
+12
+13
+14
+
+ """
