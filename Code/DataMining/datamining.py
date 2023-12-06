@@ -45,6 +45,18 @@ features = [
     "driverIMDDecile",
 ]
 
+relevantMetrics = [
+    ["2", "precision"],
+    ["2", "recall"],
+    ["3", "precision"],
+    ["3", "recall"],
+    ["4", "precision"],
+    ["4", "recall"],
+    ["accuracy"]
+]
+
+n = 100
+
 print(features)
 
 query = """with MostSevereCasualty as (select accidentID, vehicleReference, min(casualtySeverity) as mostSevereCasualty from Casualty where casualtyClass = 1 or casualtyClass = 2 group by accidentID, vehicleReference)
@@ -77,7 +89,7 @@ Y = df.severity
 # Perform k-fold cross validation
 print("Performing k-fold cross validation...")
 decisionTrees = []
-kf = KFold(n_splits=100, shuffle=True, random_state=1)
+kf = KFold(n_splits=n, shuffle=True, random_state=1)
 reports = []
 f =  open('metrics.txt', 'w')
 for i, (train_index, test_index) in enumerate(kf.split(X)):
@@ -103,3 +115,23 @@ f.close()
 f = open('metrics.json', 'w')
 f.write(json.dumps(reports))
 f.close()
+
+avgMetrics = {}
+for metric in relevantMetrics:
+    key = ""
+    for s in metric:
+        key += s
+    avgMetrics[key] = 0
+
+for report in reports:
+    for metric in relevantMetrics:
+        m = report
+        key = ""
+        for s in metric:
+            m = m[s]
+            key += s
+        
+        avgMetrics[key] += m
+
+for key in avgMetrics:
+    print(key + ": " + str(avgMetrics[key]/n))
