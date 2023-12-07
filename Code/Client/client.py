@@ -43,8 +43,7 @@ accident = {
     "policeForceID"
 }
 
-
-def search(mydb, mycursor):
+def setup_tables(mydb, mycursor):
     db = "SELECT table_name FROM information_schema.tables where table_schema = '"+ database+"';"
     mycursor.execute(db)
     myresult = mycursor.fetchall()
@@ -58,8 +57,26 @@ def search(mydb, mycursor):
         lookup_t = lookup_t[0].lower() + lookup_t[1:]
         new_lk_tables.append((lookup_t, old_lookup_t))
     print(tables)
-    # print(new_lk_tables)
-
+    
+    return tables, new_lk_tables
+    
+def search(mydb, mycursor):
+    # tables, new_lk_tables = setup_tables(mydb, mycursor)
+    db = "SELECT table_name FROM information_schema.tables where table_schema = '"+ database+"';"
+    mycursor.execute(db)
+    myresult = mycursor.fetchall()
+    tables = [item[0] for item in myresult if not item[0].startswith('LK')]
+    lk_tables = [item[0] for item in myresult if item[0].startswith('LK')]
+    new_lk_tables = []
+    for lookup_t in lk_tables:
+        old_lookup_t = lookup_t
+        if lookup_t[:2] == "LK":
+            lookup_t = lookup_t[2:]
+        lookup_t = lookup_t[0].lower() + lookup_t[1:]
+        new_lk_tables.append((lookup_t, old_lookup_t))
+    print(tables)
+    #print(new_lk_tables)
+    
     # get criteria conditions
     criteria = []
     print("Which category(s) do you want to search with? Enter one at a time, hit enter or done to stop")
@@ -79,11 +96,13 @@ def search(mydb, mycursor):
             if input_attribute in attributes:
                 
                 if input_attribute in [i[0] for i in new_lk_tables]:
-                    print("lookup table found: ")
+                    print("attribute table found: ")
                     lookup_t = input_attribute[0].upper() + input_attribute[1:]
+                    #print(lookup_t)
                     if not lookup_t == "LocalAuthorityDistrict" or "LocalAuthorityHighway":
                         lookup_t = "LK" + lookup_t
                         lookup_t = "SELECT * FROM " + lookup_t +";"
+                        #print(lookup_t)
                         mycursor.execute(lookup_t)
                         myresult = mycursor.fetchall()
                         print(myresult)
@@ -91,11 +110,9 @@ def search(mydb, mycursor):
                 
                 comparison = input("What comparison are you using? options: <, =, >: ")
                 while comparison not in ["<", "=", ">"]:
-                    comparison = input("Invalid, select these options: <, =, >: ")
-                # need to get keys/defintions here for user (they can reference "daylight" with "2" and format correct)
+                    comparison = input("Invalid, select these options: <, =, >: ")                
                 
-                
-                value = input("What value are you looking for?")
+                value = input("What value are you looking for? (enter numerical value): ")
                 criteria.append((input_table, input_attribute, comparison, value))
             else:
                 print("not an attribute")
@@ -177,8 +194,6 @@ def modify(mydb, mycursor):
             print(attributes)
 
             input_attribute = input("enter an attribute to be modified: ")
-
-            # here copy the code for getting information from tables from query
             
             att_name = [(item[0]) for item in attributes]
             if input_attribute in att_name:
@@ -276,9 +291,7 @@ def create(mydb, mycursor):
                 query += ", " 
             query += "'" + accident[item[0]] + "'"
             first = False
-            
-        # query += ", '1'"
-            
+                        
         query += ");"
         print(query)
 
@@ -297,6 +310,7 @@ def create(mydb, mycursor):
         print(table + " table created succesfully")
     
     print("all tables created")
+    print("new accidentID is " + str(year)+second_accident)
 
 # Creating connection object
 mydb = mysql.connector.connect(
