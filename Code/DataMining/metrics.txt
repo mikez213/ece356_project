@@ -1,40 +1,1000 @@
 Model 0 metrics:
               precision    recall  f1-score   support
 
-           2       0.23      0.26      0.24      1334
-           3       0.65      0.63      0.64      9138
-           4       0.54      0.55      0.54      5374
+           2       0.20      0.23      0.21       998
+           3       0.63      0.62      0.63      8182
+           4       0.62      0.62      0.62      6666
 
-    accuracy                           0.57     15846
-   macro avg       0.47      0.48      0.48     15846
-weighted avg       0.58      0.57      0.57     15846
+    accuracy                           0.60     15846
+   macro avg       0.48      0.49      0.49     15846
+weighted avg       0.60      0.60      0.60     15846
 Model 1 metrics:
               precision    recall  f1-score   support
 
-           2       0.22      0.26      0.24      1306
-           3       0.66      0.65      0.65      9033
-           4       0.56      0.56      0.56      5507
+           2       0.20      0.23      0.21       973
+           3       0.63      0.63      0.63      8129
+           4       0.62      0.61      0.62      6744
 
-    accuracy                           0.59     15846
-   macro avg       0.48      0.49      0.49     15846
-weighted avg       0.59      0.59      0.59     15846
+    accuracy                           0.60     15846
+   macro avg       0.49      0.49      0.49     15846
+weighted avg       0.60      0.60      0.60     15846
 Model 2 metrics:
               precision    recall  f1-score   support
 
-           2       0.21      0.25      0.23      1281
-           3       0.66      0.65      0.65      9115
-           4       0.56      0.56      0.56      5450
+           2       0.20      0.23      0.21       958
+           3       0.63      0.62      0.63      8150
+           4       0.62      0.62      0.62      6738
 
-    accuracy                           0.58     15846
-   macro avg       0.48      0.48      0.48     15846
-weighted avg       0.59      0.58      0.59     15846
+    accuracy                           0.60     15846
+   macro avg       0.48      0.49      0.49     15846
+weighted avg       0.60      0.60      0.60     15846
 Model 3 metrics:
               precision    recall  f1-score   support
 
-           2       0.22      0.25      0.23      1344
-           3       0.65      0.64      0.65      9095
-           4       0.55      0.55      0.55      5407
+           2       0.22      0.26      0.24       966
+           3       0.63      0.62      0.63      8133
+           4       0.62      0.62      0.62      6747
 
-    accuracy                           0.58     15846
-   macro avg       0.47      0.48      0.48     15846
-weighted avg       0.58      0.58      0.58     15846
+    accuracy                           0.60     15846
+   macro avg       0.49      0.50      0.50     15846
+weighted avg       0.60      0.60      0.60     15846
+Model 4 metrics:
+              precision    recall  f1-score   support
+
+           2       0.21      0.25      0.23       959
+           3       0.64      0.62      0.63      8193
+           4       0.62      0.62      0.62      6694
+
+    accuracy                           0.60     15846
+   macro avg       0.49      0.50      0.49     15846
+weighted avg       0.60      0.60      0.60     15846
+Model 5 metrics:
+              precision    recall  f1-score   support
+
+           2       0.21      0.22      0.21       949
+           3       0.63      0.63      0.63      8069
+           4       0.63      0.62      0.62      6828
+
+    accuracy                           0.60     15846
+   macro avg       0.49      0.49      0.49     15846
+weighted avg       0.60      0.60      0.60     15846
+Model 6 metrics:
+              precision    recall  f1-score   support
+
+           2       0.22      0.24      0.23      1006
+           3       0.64      0.63      0.63      8185
+           4       0.62      0.62      0.62      6655
+
+    accuracy                           0.60     15846
+   macro avg       0.49      0.50      0.49     15846
+weighted avg       0.60      0.60      0.60     15846
+Model 7 metrics:
+              precision    recall  f1-score   support
+
+           2       0.21      0.23      0.22       999
+           3       0.63      0.62      0.63      8133
+           4       0.62      0.62      0.62      6714
+
+    accuracy                           0.60     15846
+   macro avg       0.49      0.49      0.49     15846
+weighted avg       0.60      0.60      0.60     15846
+Model 8 metrics:
+              precision    recall  f1-score   support
+
+           2       0.21      0.23      0.22       967
+           3       0.64      0.63      0.63      8246
+           4       0.61      0.61      0.61      6633
+
+    accuracy                           0.60     15846
+   macro avg       0.49      0.49      0.49     15846
+weighted avg       0.60      0.60      0.60     15846
+Model 9 metrics:
+              precision    recall  f1-score   support
+
+           2       0.23      0.25      0.24      1039
+           3       0.63      0.62      0.63      8067
+           4       0.62      0.62      0.62      6740
+
+    accuracy                           0.60     15846
+   macro avg       0.49      0.50      0.49     15846
+weighted avg       0.60      0.60      0.60     15846
+Model 10 metrics:
+              precision    recall  f1-score   support
+
+           2       0.22      0.25      0.24      1004
+           3       0.63      0.63      0.63      8058
+           4       0.63      0.62      0.62      6784
+
+    accuracy                           0.60     15846
+   macro avg       0.49      0.50      0.50     15846
+weighted avg       0.60      0.60      0.60     15846
+Model 11 metrics:
+              precision    recall  f1-score   support
+
+           2       0.20      0.22      0.21       979
+           3       0.63      0.62      0.62      8061
+           4       0.63      0.62      0.62      6806
+
+    accuracy                           0.60     15846
+   macro avg       0.48      0.49      0.49     15846
+weighted avg       0.60      0.60      0.60     15846
+Model 12 metrics:
+              precision    recall  f1-score   support
+
+           2       0.20      0.23      0.21       974
+           3       0.62      0.62      0.62      8053
+           4       0.62      0.61      0.62      6819
+
+    accuracy                           0.59     15846
+   macro avg       0.48      0.49      0.48     15846
+weighted avg       0.59      0.59      0.59     15846
+Model 13 metrics:
+              precision    recall  f1-score   support
+
+           2       0.20      0.22      0.21       950
+           3       0.63      0.63      0.63      8123
+           4       0.63      0.62      0.62      6773
+
+    accuracy                           0.60     15846
+   macro avg       0.48      0.49      0.48     15846
+weighted avg       0.60      0.60      0.60     15846
+Model 14 metrics:
+              precision    recall  f1-score   support
+
+           2       0.18      0.20      0.19       976
+           3       0.63      0.63      0.63      8112
+           4       0.62      0.61      0.62      6758
+
+    accuracy                           0.60     15846
+   macro avg       0.48      0.48      0.48     15846
+weighted avg       0.60      0.60      0.60     15846
+Model 15 metrics:
+              precision    recall  f1-score   support
+
+           2       0.20      0.23      0.21       968
+           3       0.63      0.62      0.63      8121
+           4       0.62      0.61      0.62      6757
+
+    accuracy                           0.59     15846
+   macro avg       0.48      0.49      0.49     15846
+weighted avg       0.60      0.59      0.60     15846
+Model 16 metrics:
+              precision    recall  f1-score   support
+
+           2       0.22      0.24      0.23      1021
+           3       0.63      0.62      0.62      8119
+           4       0.61      0.62      0.62      6706
+
+    accuracy                           0.59     15846
+   macro avg       0.49      0.49      0.49     15846
+weighted avg       0.60      0.59      0.59     15846
+Model 17 metrics:
+              precision    recall  f1-score   support
+
+           2       0.23      0.25      0.24       978
+           3       0.63      0.63      0.63      8121
+           4       0.62      0.62      0.62      6747
+
+    accuracy                           0.60     15846
+   macro avg       0.49      0.50      0.49     15846
+weighted avg       0.60      0.60      0.60     15846
+Model 18 metrics:
+              precision    recall  f1-score   support
+
+           2       0.21      0.23      0.22       972
+           3       0.63      0.63      0.63      8155
+           4       0.62      0.61      0.62      6719
+
+    accuracy                           0.60     15846
+   macro avg       0.49      0.49      0.49     15846
+weighted avg       0.60      0.60      0.60     15846
+Model 19 metrics:
+              precision    recall  f1-score   support
+
+           2       0.21      0.23      0.22       971
+           3       0.63      0.63      0.63      8110
+           4       0.63      0.62      0.63      6765
+
+    accuracy                           0.60     15846
+   macro avg       0.49      0.49      0.49     15846
+weighted avg       0.60      0.60      0.60     15846
+Model 20 metrics:
+              precision    recall  f1-score   support
+
+           2       0.20      0.22      0.21       940
+           3       0.64      0.63      0.64      8192
+           4       0.62      0.62      0.62      6714
+
+    accuracy                           0.60     15846
+   macro avg       0.49      0.49      0.49     15846
+weighted avg       0.61      0.60      0.60     15846
+Model 21 metrics:
+              precision    recall  f1-score   support
+
+           2       0.19      0.23      0.21       937
+           3       0.62      0.62      0.62      8016
+           4       0.63      0.63      0.63      6893
+
+    accuracy                           0.60     15846
+   macro avg       0.48      0.49      0.49     15846
+weighted avg       0.60      0.60      0.60     15846
+Model 22 metrics:
+              precision    recall  f1-score   support
+
+           2       0.19      0.22      0.21       975
+           3       0.63      0.63      0.63      8152
+           4       0.62      0.61      0.62      6719
+
+    accuracy                           0.60     15846
+   macro avg       0.48      0.49      0.49     15846
+weighted avg       0.60      0.60      0.60     15846
+Model 23 metrics:
+              precision    recall  f1-score   support
+
+           2       0.21      0.24      0.22       972
+           3       0.63      0.63      0.63      8083
+           4       0.63      0.62      0.62      6791
+
+    accuracy                           0.60     15846
+   macro avg       0.49      0.49      0.49     15846
+weighted avg       0.60      0.60      0.60     15846
+Model 24 metrics:
+              precision    recall  f1-score   support
+
+           2       0.21      0.24      0.22       970
+           3       0.64      0.62      0.63      8138
+           4       0.62      0.63      0.63      6738
+
+    accuracy                           0.60     15846
+   macro avg       0.49      0.50      0.49     15846
+weighted avg       0.60      0.60      0.60     15846
+Model 25 metrics:
+              precision    recall  f1-score   support
+
+           2       0.23      0.25      0.24      1012
+           3       0.63      0.62      0.62      8105
+           4       0.62      0.62      0.62      6729
+
+    accuracy                           0.60     15846
+   macro avg       0.49      0.50      0.50     15846
+weighted avg       0.60      0.60      0.60     15846
+Model 26 metrics:
+              precision    recall  f1-score   support
+
+           2       0.21      0.24      0.22       999
+           3       0.63      0.62      0.63      8062
+           4       0.63      0.63      0.63      6785
+
+    accuracy                           0.60     15846
+   macro avg       0.49      0.50      0.49     15846
+weighted avg       0.60      0.60      0.60     15846
+Model 27 metrics:
+              precision    recall  f1-score   support
+
+           2       0.19      0.21      0.20       987
+           3       0.63      0.63      0.63      8089
+           4       0.63      0.63      0.63      6770
+
+    accuracy                           0.60     15846
+   macro avg       0.49      0.49      0.49     15846
+weighted avg       0.61      0.60      0.60     15846
+Model 28 metrics:
+              precision    recall  f1-score   support
+
+           2       0.24      0.25      0.24      1017
+           3       0.64      0.63      0.64      8163
+           4       0.62      0.62      0.62      6666
+
+    accuracy                           0.60     15846
+   macro avg       0.50      0.50      0.50     15846
+weighted avg       0.61      0.60      0.60     15846
+Model 29 metrics:
+              precision    recall  f1-score   support
+
+           2       0.22      0.23      0.22       996
+           3       0.64      0.64      0.64      8156
+           4       0.63      0.63      0.63      6694
+
+    accuracy                           0.61     15846
+   macro avg       0.50      0.50      0.50     15846
+weighted avg       0.61      0.61      0.61     15846
+Model 30 metrics:
+              precision    recall  f1-score   support
+
+           2       0.23      0.25      0.24       976
+           3       0.64      0.64      0.64      8150
+           4       0.63      0.63      0.63      6720
+
+    accuracy                           0.61     15846
+   macro avg       0.50      0.50      0.50     15846
+weighted avg       0.61      0.61      0.61     15846
+Model 31 metrics:
+              precision    recall  f1-score   support
+
+           2       0.21      0.24      0.22       930
+           3       0.63      0.63      0.63      8118
+           4       0.62      0.62      0.62      6798
+
+    accuracy                           0.60     15846
+   macro avg       0.49      0.49      0.49     15846
+weighted avg       0.60      0.60      0.60     15846
+Model 32 metrics:
+              precision    recall  f1-score   support
+
+           2       0.22      0.24      0.23      1020
+           3       0.63      0.62      0.63      8160
+           4       0.62      0.62      0.62      6666
+
+    accuracy                           0.60     15846
+   macro avg       0.49      0.49      0.49     15846
+weighted avg       0.60      0.60      0.60     15846
+Model 33 metrics:
+              precision    recall  f1-score   support
+
+           2       0.20      0.24      0.22       986
+           3       0.64      0.62      0.63      8178
+           4       0.62      0.62      0.62      6682
+
+    accuracy                           0.60     15846
+   macro avg       0.49      0.50      0.49     15846
+weighted avg       0.60      0.60      0.60     15846
+Model 34 metrics:
+              precision    recall  f1-score   support
+
+           2       0.22      0.26      0.24       960
+           3       0.63      0.62      0.63      8120
+           4       0.62      0.61      0.62      6766
+
+    accuracy                           0.60     15846
+   macro avg       0.49      0.50      0.49     15846
+weighted avg       0.60      0.60      0.60     15846
+Model 35 metrics:
+              precision    recall  f1-score   support
+
+           2       0.21      0.24      0.22       995
+           3       0.62      0.62      0.62      7981
+           4       0.63      0.62      0.62      6870
+
+    accuracy                           0.59     15846
+   macro avg       0.49      0.49      0.49     15846
+weighted avg       0.60      0.59      0.60     15846
+Model 36 metrics:
+              precision    recall  f1-score   support
+
+           2       0.20      0.23      0.21       982
+           3       0.63      0.62      0.63      8128
+           4       0.62      0.62      0.62      6736
+
+    accuracy                           0.60     15846
+   macro avg       0.48      0.49      0.49     15846
+weighted avg       0.60      0.60      0.60     15846
+Model 37 metrics:
+              precision    recall  f1-score   support
+
+           2       0.21      0.25      0.23       996
+           3       0.63      0.63      0.63      8061
+           4       0.63      0.62      0.62      6789
+
+    accuracy                           0.60     15846
+   macro avg       0.49      0.50      0.49     15846
+weighted avg       0.60      0.60      0.60     15846
+Model 38 metrics:
+              precision    recall  f1-score   support
+
+           2       0.20      0.22      0.21       975
+           3       0.63      0.63      0.63      8124
+           4       0.63      0.62      0.63      6747
+
+    accuracy                           0.60     15846
+   macro avg       0.49      0.49      0.49     15846
+weighted avg       0.60      0.60      0.60     15846
+Model 39 metrics:
+              precision    recall  f1-score   support
+
+           2       0.22      0.24      0.23       952
+           3       0.63      0.63      0.63      8116
+           4       0.62      0.62      0.62      6778
+
+    accuracy                           0.60     15846
+   macro avg       0.49      0.50      0.49     15846
+weighted avg       0.60      0.60      0.60     15846
+Model 40 metrics:
+              precision    recall  f1-score   support
+
+           2       0.22      0.25      0.24       969
+           3       0.63      0.63      0.63      8171
+           4       0.62      0.61      0.62      6706
+
+    accuracy                           0.60     15846
+   macro avg       0.49      0.50      0.49     15846
+weighted avg       0.60      0.60      0.60     15846
+Model 41 metrics:
+              precision    recall  f1-score   support
+
+           2       0.23      0.25      0.24       957
+           3       0.64      0.64      0.64      8195
+           4       0.62      0.62      0.62      6694
+
+    accuracy                           0.60     15846
+   macro avg       0.50      0.50      0.50     15846
+weighted avg       0.61      0.60      0.61     15846
+Model 42 metrics:
+              precision    recall  f1-score   support
+
+           2       0.23      0.24      0.24      1036
+           3       0.63      0.63      0.63      8029
+           4       0.63      0.62      0.62      6781
+
+    accuracy                           0.60     15846
+   macro avg       0.49      0.50      0.50     15846
+weighted avg       0.60      0.60      0.60     15846
+Model 43 metrics:
+              precision    recall  f1-score   support
+
+           2       0.22      0.23      0.22       996
+           3       0.62      0.63      0.63      8000
+           4       0.63      0.62      0.62      6850
+
+    accuracy                           0.60     15846
+   macro avg       0.49      0.49      0.49     15846
+weighted avg       0.60      0.60      0.60     15846
+Model 44 metrics:
+              precision    recall  f1-score   support
+
+           2       0.21      0.23      0.22      1007
+           3       0.63      0.63      0.63      8024
+           4       0.63      0.62      0.62      6815
+
+    accuracy                           0.60     15846
+   macro avg       0.49      0.49      0.49     15846
+weighted avg       0.60      0.60      0.60     15846
+Model 45 metrics:
+              precision    recall  f1-score   support
+
+           2       0.20      0.23      0.21       983
+           3       0.63      0.63      0.63      8079
+           4       0.64      0.62      0.63      6784
+
+    accuracy                           0.60     15846
+   macro avg       0.49      0.49      0.49     15846
+weighted avg       0.61      0.60      0.61     15846
+Model 46 metrics:
+              precision    recall  f1-score   support
+
+           2       0.21      0.23      0.22       989
+           3       0.63      0.62      0.63      8062
+           4       0.63      0.63      0.63      6795
+
+    accuracy                           0.60     15846
+   macro avg       0.49      0.49      0.49     15846
+weighted avg       0.60      0.60      0.60     15846
+Model 47 metrics:
+              precision    recall  f1-score   support
+
+           2       0.20      0.23      0.22       936
+           3       0.64      0.64      0.64      8207
+           4       0.63      0.61      0.62      6703
+
+    accuracy                           0.60     15846
+   macro avg       0.49      0.49      0.49     15846
+weighted avg       0.61      0.60      0.60     15846
+Model 48 metrics:
+              precision    recall  f1-score   support
+
+           2       0.20      0.23      0.21      1016
+           3       0.64      0.63      0.63      8196
+           4       0.62      0.62      0.62      6634
+
+    accuracy                           0.60     15846
+   macro avg       0.49      0.49      0.49     15846
+weighted avg       0.60      0.60      0.60     15846
+Model 49 metrics:
+              precision    recall  f1-score   support
+
+           2       0.19      0.23      0.20       956
+           3       0.63      0.63      0.63      8143
+           4       0.63      0.61      0.62      6747
+
+    accuracy                           0.60     15846
+   macro avg       0.48      0.49      0.48     15846
+weighted avg       0.60      0.60      0.60     15846
+Model 50 metrics:
+              precision    recall  f1-score   support
+
+           2       0.21      0.23      0.22      1019
+           3       0.63      0.63      0.63      8079
+           4       0.63      0.62      0.62      6748
+
+    accuracy                           0.60     15846
+   macro avg       0.49      0.49      0.49     15846
+weighted avg       0.60      0.60      0.60     15846
+Model 51 metrics:
+              precision    recall  f1-score   support
+
+           2       0.23      0.25      0.24       992
+           3       0.63      0.63      0.63      8134
+           4       0.62      0.61      0.62      6720
+
+    accuracy                           0.60     15846
+   macro avg       0.49      0.50      0.49     15846
+weighted avg       0.60      0.60      0.60     15846
+Model 52 metrics:
+              precision    recall  f1-score   support
+
+           2       0.20      0.23      0.22       971
+           3       0.64      0.63      0.63      8207
+           4       0.62      0.62      0.62      6668
+
+    accuracy                           0.60     15846
+   macro avg       0.49      0.49      0.49     15846
+weighted avg       0.60      0.60      0.60     15846
+Model 53 metrics:
+              precision    recall  f1-score   support
+
+           2       0.23      0.24      0.23      1037
+           3       0.63      0.64      0.63      8062
+           4       0.63      0.62      0.63      6747
+
+    accuracy                           0.60     15846
+   macro avg       0.50      0.50      0.50     15846
+weighted avg       0.60      0.60      0.60     15846
+Model 54 metrics:
+              precision    recall  f1-score   support
+
+           2       0.21      0.23      0.22       971
+           3       0.64      0.62      0.63      8171
+           4       0.62      0.63      0.62      6704
+
+    accuracy                           0.60     15846
+   macro avg       0.49      0.49      0.49     15846
+weighted avg       0.60      0.60      0.60     15846
+Model 55 metrics:
+              precision    recall  f1-score   support
+
+           2       0.20      0.24      0.22       936
+           3       0.63      0.63      0.63      8167
+           4       0.63      0.62      0.62      6742
+
+    accuracy                           0.60     15845
+   macro avg       0.49      0.49      0.49     15845
+weighted avg       0.60      0.60      0.60     15845
+Model 56 metrics:
+              precision    recall  f1-score   support
+
+           2       0.21      0.24      0.22       997
+           3       0.63      0.62      0.63      8175
+           4       0.62      0.61      0.61      6673
+
+    accuracy                           0.59     15845
+   macro avg       0.49      0.49      0.49     15845
+weighted avg       0.60      0.59      0.60     15845
+Model 57 metrics:
+              precision    recall  f1-score   support
+
+           2       0.21      0.24      0.22       970
+           3       0.64      0.63      0.64      8222
+           4       0.62      0.62      0.62      6653
+
+    accuracy                           0.60     15845
+   macro avg       0.49      0.50      0.49     15845
+weighted avg       0.61      0.60      0.61     15845
+Model 58 metrics:
+              precision    recall  f1-score   support
+
+           2       0.23      0.27      0.25       976
+           3       0.63      0.63      0.63      8138
+           4       0.62      0.62      0.62      6731
+
+    accuracy                           0.60     15845
+   macro avg       0.50      0.50      0.50     15845
+weighted avg       0.61      0.60      0.60     15845
+Model 59 metrics:
+              precision    recall  f1-score   support
+
+           2       0.20      0.24      0.22       956
+           3       0.64      0.63      0.63      8140
+           4       0.63      0.62      0.63      6749
+
+    accuracy                           0.60     15845
+   macro avg       0.49      0.50      0.49     15845
+weighted avg       0.61      0.60      0.61     15845
+Model 60 metrics:
+              precision    recall  f1-score   support
+
+           2       0.19      0.22      0.21       954
+           3       0.63      0.62      0.62      8094
+           4       0.62      0.61      0.62      6797
+
+    accuracy                           0.59     15845
+   macro avg       0.48      0.49      0.48     15845
+weighted avg       0.60      0.59      0.60     15845
+Model 61 metrics:
+              precision    recall  f1-score   support
+
+           2       0.20      0.23      0.21       924
+           3       0.65      0.62      0.64      8288
+           4       0.62      0.63      0.63      6633
+
+    accuracy                           0.61     15845
+   macro avg       0.49      0.50      0.49     15845
+weighted avg       0.61      0.61      0.61     15845
+Model 62 metrics:
+              precision    recall  f1-score   support
+
+           2       0.20      0.22      0.21      1005
+           3       0.63      0.63      0.63      8179
+           4       0.62      0.62      0.62      6661
+
+    accuracy                           0.60     15845
+   macro avg       0.49      0.49      0.49     15845
+weighted avg       0.60      0.60      0.60     15845
+Model 63 metrics:
+              precision    recall  f1-score   support
+
+           2       0.22      0.23      0.23      1030
+           3       0.63      0.63      0.63      7988
+           4       0.64      0.63      0.63      6827
+
+    accuracy                           0.60     15845
+   macro avg       0.50      0.50      0.50     15845
+weighted avg       0.61      0.60      0.61     15845
+Model 64 metrics:
+              precision    recall  f1-score   support
+
+           2       0.20      0.23      0.21       942
+           3       0.64      0.63      0.63      8195
+           4       0.63      0.62      0.62      6708
+
+    accuracy                           0.60     15845
+   macro avg       0.49      0.49      0.49     15845
+weighted avg       0.61      0.60      0.60     15845
+Model 65 metrics:
+              precision    recall  f1-score   support
+
+           2       0.22      0.24      0.23       986
+           3       0.63      0.62      0.63      8145
+           4       0.62      0.61      0.61      6714
+
+    accuracy                           0.59     15845
+   macro avg       0.49      0.49      0.49     15845
+weighted avg       0.60      0.59      0.60     15845
+Model 66 metrics:
+              precision    recall  f1-score   support
+
+           2       0.21      0.24      0.23      1016
+           3       0.62      0.63      0.63      8040
+           4       0.63      0.61      0.62      6789
+
+    accuracy                           0.60     15845
+   macro avg       0.49      0.49      0.49     15845
+weighted avg       0.60      0.60      0.60     15845
+Model 67 metrics:
+              precision    recall  f1-score   support
+
+           2       0.21      0.23      0.22       997
+           3       0.64      0.63      0.63      8204
+           4       0.62      0.62      0.62      6644
+
+    accuracy                           0.60     15845
+   macro avg       0.49      0.49      0.49     15845
+weighted avg       0.60      0.60      0.60     15845
+Model 68 metrics:
+              precision    recall  f1-score   support
+
+           2       0.19      0.23      0.21       994
+           3       0.63      0.62      0.63      8158
+           4       0.62      0.61      0.61      6693
+
+    accuracy                           0.59     15845
+   macro avg       0.48      0.49      0.48     15845
+weighted avg       0.60      0.59      0.59     15845
+Model 69 metrics:
+              precision    recall  f1-score   support
+
+           2       0.22      0.25      0.23      1006
+           3       0.64      0.62      0.63      8149
+           4       0.62      0.63      0.63      6690
+
+    accuracy                           0.60     15845
+   macro avg       0.49      0.50      0.50     15845
+weighted avg       0.61      0.60      0.60     15845
+Model 70 metrics:
+              precision    recall  f1-score   support
+
+           2       0.20      0.22      0.21       992
+           3       0.63      0.63      0.63      8191
+           4       0.62      0.62      0.62      6662
+
+    accuracy                           0.60     15845
+   macro avg       0.48      0.49      0.49     15845
+weighted avg       0.60      0.60      0.60     15845
+Model 71 metrics:
+              precision    recall  f1-score   support
+
+           2       0.21      0.25      0.23       955
+           3       0.63      0.63      0.63      8134
+           4       0.63      0.62      0.63      6756
+
+    accuracy                           0.60     15845
+   macro avg       0.49      0.50      0.49     15845
+weighted avg       0.61      0.60      0.60     15845
+Model 72 metrics:
+              precision    recall  f1-score   support
+
+           2       0.20      0.22      0.21       996
+           3       0.63      0.63      0.63      8142
+           4       0.62      0.62      0.62      6707
+
+    accuracy                           0.60     15845
+   macro avg       0.49      0.49      0.49     15845
+weighted avg       0.60      0.60      0.60     15845
+Model 73 metrics:
+              precision    recall  f1-score   support
+
+           2       0.22      0.24      0.23      1002
+           3       0.63      0.63      0.63      7996
+           4       0.64      0.62      0.63      6847
+
+    accuracy                           0.60     15845
+   macro avg       0.49      0.50      0.50     15845
+weighted avg       0.61      0.60      0.60     15845
+Model 74 metrics:
+              precision    recall  f1-score   support
+
+           2       0.20      0.22      0.21       924
+           3       0.64      0.63      0.64      8198
+           4       0.63      0.63      0.63      6723
+
+    accuracy                           0.61     15845
+   macro avg       0.49      0.49      0.49     15845
+weighted avg       0.61      0.61      0.61     15845
+Model 75 metrics:
+              precision    recall  f1-score   support
+
+           2       0.21      0.23      0.22       961
+           3       0.64      0.63      0.64      8261
+           4       0.62      0.62      0.62      6623
+
+    accuracy                           0.60     15845
+   macro avg       0.49      0.50      0.49     15845
+weighted avg       0.61      0.60      0.60     15845
+Model 76 metrics:
+              precision    recall  f1-score   support
+
+           2       0.21      0.23      0.22       981
+           3       0.63      0.63      0.63      8165
+           4       0.62      0.60      0.61      6699
+
+    accuracy                           0.59     15845
+   macro avg       0.48      0.49      0.49     15845
+weighted avg       0.60      0.59      0.60     15845
+Model 77 metrics:
+              precision    recall  f1-score   support
+
+           2       0.21      0.23      0.22      1032
+           3       0.63      0.63      0.63      8094
+           4       0.63      0.63      0.63      6719
+
+    accuracy                           0.60     15845
+   macro avg       0.49      0.49      0.49     15845
+weighted avg       0.60      0.60      0.60     15845
+Model 78 metrics:
+              precision    recall  f1-score   support
+
+           2       0.20      0.23      0.21       967
+           3       0.64      0.63      0.64      8153
+           4       0.63      0.62      0.63      6725
+
+    accuracy                           0.60     15845
+   macro avg       0.49      0.49      0.49     15845
+weighted avg       0.61      0.60      0.61     15845
+Model 79 metrics:
+              precision    recall  f1-score   support
+
+           2       0.21      0.23      0.22      1014
+           3       0.63      0.62      0.63      8204
+           4       0.61      0.62      0.62      6627
+
+    accuracy                           0.60     15845
+   macro avg       0.49      0.49      0.49     15845
+weighted avg       0.60      0.60      0.60     15845
+Model 80 metrics:
+              precision    recall  f1-score   support
+
+           2       0.21      0.23      0.22      1001
+           3       0.62      0.62      0.62      8028
+           4       0.62      0.62      0.62      6816
+
+    accuracy                           0.59     15845
+   macro avg       0.48      0.49      0.49     15845
+weighted avg       0.60      0.59      0.59     15845
+Model 81 metrics:
+              precision    recall  f1-score   support
+
+           2       0.22      0.24      0.23       963
+           3       0.63      0.63      0.63      8165
+           4       0.62      0.62      0.62      6717
+
+    accuracy                           0.60     15845
+   macro avg       0.49      0.50      0.49     15845
+weighted avg       0.60      0.60      0.60     15845
+Model 82 metrics:
+              precision    recall  f1-score   support
+
+           2       0.20      0.23      0.21       957
+           3       0.63      0.62      0.62      8131
+           4       0.62      0.61      0.61      6757
+
+    accuracy                           0.59     15845
+   macro avg       0.48      0.49      0.48     15845
+weighted avg       0.60      0.59      0.60     15845
+Model 83 metrics:
+              precision    recall  f1-score   support
+
+           2       0.20      0.23      0.21       982
+           3       0.63      0.61      0.62      8214
+           4       0.61      0.61      0.61      6649
+
+    accuracy                           0.59     15845
+   macro avg       0.48      0.48      0.48     15845
+weighted avg       0.59      0.59      0.59     15845
+Model 84 metrics:
+              precision    recall  f1-score   support
+
+           2       0.22      0.24      0.23       986
+           3       0.64      0.63      0.63      8251
+           4       0.62      0.62      0.62      6608
+
+    accuracy                           0.60     15845
+   macro avg       0.49      0.50      0.49     15845
+weighted avg       0.60      0.60      0.60     15845
+Model 85 metrics:
+              precision    recall  f1-score   support
+
+           2       0.22      0.25      0.23       987
+           3       0.63      0.62      0.63      8219
+           4       0.61      0.61      0.61      6639
+
+    accuracy                           0.59     15845
+   macro avg       0.49      0.49      0.49     15845
+weighted avg       0.60      0.59      0.60     15845
+Model 86 metrics:
+              precision    recall  f1-score   support
+
+           2       0.22      0.24      0.23      1010
+           3       0.64      0.63      0.63      8159
+           4       0.63      0.62      0.63      6676
+
+    accuracy                           0.60     15845
+   macro avg       0.50      0.50      0.50     15845
+weighted avg       0.61      0.60      0.60     15845
+Model 87 metrics:
+              precision    recall  f1-score   support
+
+           2       0.22      0.25      0.23       964
+           3       0.64      0.63      0.64      8119
+           4       0.63      0.63      0.63      6762
+
+    accuracy                           0.61     15845
+   macro avg       0.50      0.50      0.50     15845
+weighted avg       0.61      0.61      0.61     15845
+Model 88 metrics:
+              precision    recall  f1-score   support
+
+           2       0.19      0.21      0.20      1018
+           3       0.63      0.62      0.62      8176
+           4       0.62      0.63      0.62      6651
+
+    accuracy                           0.59     15845
+   macro avg       0.48      0.48      0.48     15845
+weighted avg       0.60      0.59      0.59     15845
+Model 89 metrics:
+              precision    recall  f1-score   support
+
+           2       0.21      0.24      0.22       985
+           3       0.63      0.62      0.62      8090
+           4       0.62      0.61      0.62      6770
+
+    accuracy                           0.60     15845
+   macro avg       0.49      0.49      0.49     15845
+weighted avg       0.60      0.60      0.60     15845
+Model 90 metrics:
+              precision    recall  f1-score   support
+
+           2       0.21      0.24      0.22       945
+           3       0.63      0.62      0.62      8206
+           4       0.61      0.61      0.61      6694
+
+    accuracy                           0.59     15845
+   macro avg       0.48      0.49      0.48     15845
+weighted avg       0.60      0.59      0.59     15845
+Model 91 metrics:
+              precision    recall  f1-score   support
+
+           2       0.22      0.24      0.23      1002
+           3       0.64      0.64      0.64      8211
+           4       0.62      0.61      0.62      6632
+
+    accuracy                           0.60     15845
+   macro avg       0.49      0.50      0.50     15845
+weighted avg       0.60      0.60      0.60     15845
+Model 92 metrics:
+              precision    recall  f1-score   support
+
+           2       0.20      0.23      0.21       984
+           3       0.63      0.62      0.62      8106
+           4       0.62      0.61      0.62      6755
+
+    accuracy                           0.59     15845
+   macro avg       0.48      0.49      0.48     15845
+weighted avg       0.60      0.59      0.59     15845
+Model 93 metrics:
+              precision    recall  f1-score   support
+
+           2       0.20      0.23      0.22       973
+           3       0.63      0.63      0.63      8182
+           4       0.63      0.62      0.62      6690
+
+    accuracy                           0.60     15845
+   macro avg       0.49      0.49      0.49     15845
+weighted avg       0.61      0.60      0.60     15845
+Model 94 metrics:
+              precision    recall  f1-score   support
+
+           2       0.22      0.24      0.23      1003
+           3       0.64      0.64      0.64      8205
+           4       0.63      0.62      0.62      6637
+
+    accuracy                           0.60     15845
+   macro avg       0.49      0.50      0.50     15845
+weighted avg       0.61      0.60      0.60     15845
+Model 95 metrics:
+              precision    recall  f1-score   support
+
+           2       0.18      0.22      0.20       984
+           3       0.63      0.62      0.63      8079
+           4       0.63      0.62      0.62      6782
+
+    accuracy                           0.60     15845
+   macro avg       0.48      0.49      0.48     15845
+weighted avg       0.60      0.60      0.60     15845
+Model 96 metrics:
+              precision    recall  f1-score   support
+
+           2       0.21      0.24      0.22       924
+           3       0.64      0.63      0.63      8123
+           4       0.63      0.62      0.63      6798
+
+    accuracy                           0.60     15845
+   macro avg       0.49      0.50      0.49     15845
+weighted avg       0.61      0.60      0.60     15845
+Model 97 metrics:
+              precision    recall  f1-score   support
+
+           2       0.20      0.24      0.22       995
+           3       0.63      0.62      0.63      8080
+           4       0.62      0.61      0.62      6770
+
+    accuracy                           0.59     15845
+   macro avg       0.48      0.49      0.49     15845
+weighted avg       0.60      0.59      0.60     15845
+Model 98 metrics:
+              precision    recall  f1-score   support
+
+           2       0.20      0.22      0.21      1038
+           3       0.63      0.62      0.62      8164
+           4       0.62      0.62      0.62      6643
+
+    accuracy                           0.59     15845
+   macro avg       0.48      0.48      0.48     15845
+weighted avg       0.59      0.59      0.59     15845
+Model 99 metrics:
+              precision    recall  f1-score   support
+
+           2       0.22      0.26      0.24       956
+           3       0.64      0.63      0.64      8172
+           4       0.63      0.62      0.63      6717
+
+    accuracy                           0.61     15845
+   macro avg       0.50      0.51      0.50     15845
+weighted avg       0.61      0.61      0.61     15845
